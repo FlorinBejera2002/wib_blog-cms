@@ -7,7 +7,7 @@ Tu (admin) → Strapi Admin Panel (localhost:1337/admin)
                      ↓
               Scrii/editezi articolul
                      ↓
-              Apeși "Publish"
+              Ape?i "Publish"
                      ↓
               Articolul e disponibil via REST API
                      ↓
