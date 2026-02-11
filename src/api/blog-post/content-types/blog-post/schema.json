@@ -1,0 +1,109 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_posts",
+  "info": {
+    "singularName": "blog-post",
+    "pluralName": "blog-posts",
+    "displayName": "Blog Post",
+    "description": "Blog articles for asigurari.ro"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "excerpt": {
+      "type": "text",
+      "required": true,
+      "maxLength": 500
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "featuredImageUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "featuredImageAlt": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "blogPosts"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "blogPosts"
+    },
+    "system": {
+      "type": "enumeration",
+      "enum": [
+        "rca",
+        "casco",
+        "travel",
+        "home",
+        "life",
+        "health",
+        "malpraxis",
+        "cmr",
+        "breakdown",
+        "accidents",
+        "common"
+      ],
+      "required": true,
+      "default": "common"
+    },
+    "metaTitle": {
+      "type": "string",
+      "maxLength": 70
+    },
+    "metaDescription": {
+      "type": "text",
+      "maxLength": 160
+    },
+    "tocItems": {
+      "type": "json"
+    },
+    "readingTime": {
+      "type": "integer",
+      "min": 1
+    },
+    "reviewStatus": {
+      "type": "enumeration",
+      "enum": [
+        "draft",
+        "pending_review",
+        "approved",
+        "rejected"
+      ],
+      "default": "draft",
+      "required": true
+    },
+    "authorName": {
+      "type": "string",
+      "maxLength": 100
+    }
+  }
+}
