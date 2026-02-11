@@ -22,8 +22,8 @@ COPY --from=build /opt/app ./
 
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
-ENV PORT=1337
+ENV PORT=${PORT:-1337}
 
-EXPOSE 1337
+EXPOSE ${PORT:-1337}
 
 CMD ["npm", "run", "start"]
